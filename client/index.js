@@ -1,3 +1,5 @@
+
+const BASE_URL = 'http://localhost:3000'
 const uploadForm = document.getElementById('uploadForm');
 const allDataList = document.getElementById('allDataList');
 const imageContainer = document.getElementById('imageContainer');
@@ -27,7 +29,7 @@ uploadForm.addEventListener('submit', async (e) => {
 
 async function onthetop () {
     try {
-        const response = await axios.get('http://localhost:3000/api/numberone');
+        const response = await axios.get(`${BASE_URL}/api/numberone`);
         const data = response.data;
         for(let i = 0; i < data.length; i++) {
             // console.log(data[i].name)
@@ -44,7 +46,7 @@ async function getAllData() {
     onthetop()
   try {
     
-    const response = await axios.get('http://localhost:3000/api/getdata');
+    const response = await axios.get(`${BASE_URL}/api/getdata`);
     const data = response.data;
     // dispaly with html noty forecth use for normal
     htmlData = ''
@@ -79,7 +81,7 @@ async function getAllData() {
             const id = Event.target.dataset.id
             // console.log(id)
             try {
-                await axios.delete(`http://localhost:3000/api/delete/${id}`)
+                await axios.delete(`${BASE_URL}/api/delete/${id}`)
                 // console.log(response.data)
                 getAllData()
             } catch (error) {
@@ -103,7 +105,7 @@ async function getAllData() {
             }
             // console.log(addid)
             try {
-                await axios.patch(`http://localhost:3000/api/vote/${addid}`,updateUser)
+                await axios.patch(`${BASE_URL}/api/vote/${addid}`,updateUser)
                 // console.log(response.data)
                 getAllData()
                 messageDOM.innerText ='โจทเพิ่มมมม 1'
@@ -129,7 +131,7 @@ async function getAllData() {
             }
             // console.log(addid)
             try {
-                await axios.patch(`http://localhost:3000/api/vote/${addid}`,updateUser)
+                await axios.patch(`${BASE_URL}/api/vote/${addid}`,updateUser)
                 // console.log(response.data)
                 getAllData()
                 messageDOM.innerText ='โจทเพิ่มมมม 10'
@@ -155,7 +157,7 @@ async function getAllData() {
             }
             // console.log(addid)
             try {
-                await axios.patch(`http://localhost:3000/api/vote/${addid}`,updateUser)
+                await axios.patch(`${BASE_URL}/api/vote/${addid}`,updateUser)
                 // console.log(response.data)
                 getAllData()
                 messageDOM.innerText ='เย้ดแม่ไอ้ตัวนี้หนักจริง 100+++'
